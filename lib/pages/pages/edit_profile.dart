@@ -209,24 +209,29 @@ class _EditProfileState extends State<EditProfile> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            isExpanded: false,
-                            hint: const Text("Select Role"),
-                            value: role,
-                            items: roles.map(buildMenuItem).toList(),
-                            onChanged: (value) => setState(
-                              () {
-                                role = value;
-                              },
+                    (widget.userModel.role != "patron")
+                        ? Center(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20),
+                              child: DropdownButtonHideUnderline(
+                                child: DropdownButton<String>(
+                                  isExpanded: false,
+                                  hint: const Text("Select Role"),
+                                  value: role,
+                                  items: roles.map(buildMenuItem).toList(),
+                                  onChanged: (value) => setState(
+                                    () {
+                                      role = value;
+                                    },
+                                  ),
+                                ),
+                              ),
                             ),
+                          )
+                        : Container(
+                            height: 0,
                           ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ),

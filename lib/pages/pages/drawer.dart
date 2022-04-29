@@ -1,11 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:liabrary/helpers/email_helper.dart';
 import 'package:liabrary/models/user_model.dart';
 import 'package:liabrary/pages/issued_books.dart';
+import 'package:liabrary/pages/pages/apply_card.dart';
 import 'package:liabrary/pages/pages/edit_profile.dart';
 import 'package:liabrary/pages/pages/inventory.dart';
 import 'package:liabrary/pages/pages/login_page.dart';
+import 'package:liabrary/pages/pages/my_card.dart';
 import 'package:liabrary/pages/pages/search_page.dart';
 import 'package:liabrary/pages/pages/user_profile.dart';
 import 'package:liabrary/utils/colors.dart';
@@ -237,6 +240,100 @@ class _MyDrawerState extends State<MyDrawer> {
                       ),
                     ),
                   ),
+                  (widget.userModel.role == 'patron')
+                      ? Card(
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return ApplyForCard(
+                                        userModel: widget.userModel,
+                                        firebaseUser: widget.firebaseUser);
+                                  },
+                                ),
+                              );
+                            },
+                            leading: Icon(
+                              CupertinoIcons.creditcard_fill,
+                              color: Colors.grey[700],
+                            ),
+                            title: Text(
+                              "Apply For Card",
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          height: 0,
+                        ),
+                  (widget.userModel.role == 'patron')
+                      ? Card(
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return MyCard(
+                                        userModel: widget.userModel,
+                                        firebaseUser: widget.firebaseUser);
+                                  },
+                                ),
+                              );
+                            },
+                            leading: Icon(
+                              CupertinoIcons.creditcard,
+                              color: Colors.grey[700],
+                            ),
+                            title: Text(
+                              "My Card",
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          height: 0,
+                        ),
+                  (widget.userModel.role != 'patron')
+                      ? Card(
+                          child: ListTile(
+                            onTap: () async {
+                              await EmailHelper.sendEmail(
+                                "demo Book",
+                                "elibraryfyp@gmail.com",
+                                context,
+                              );
+                              Navigator.pop(context);
+                            },
+                            leading: Icon(
+                              Icons.email,
+                              color: Colors.grey[700],
+                            ),
+                            title: Text(
+                              "Send Test Email",
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          height: 0,
+                        ),
                   Card(
                     child: ListTile(
                       onTap: () async {

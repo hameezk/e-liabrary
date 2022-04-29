@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:liabrary/models/book_model.dart';
 import 'package:liabrary/models/user_model.dart';
 import 'package:liabrary/pages/issued_books.dart';
+import 'package:liabrary/pages/pages/drawer.dart';
 import 'package:liabrary/utils/colors.dart';
 
 class BookIssue extends StatefulWidget {
@@ -300,6 +301,10 @@ class _BookIssueState extends State<BookIssue> {
           ),
         ),
       ),
+      drawer: MyDrawer(
+          firebaseUser: widget.firebaseUser,
+          userModel: widget.userModel,
+        ),
     );
   }
 

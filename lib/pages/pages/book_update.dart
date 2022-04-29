@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:liabrary/models/book_model.dart';
 import 'package:liabrary/models/user_model.dart';
+import 'package:liabrary/pages/pages/drawer.dart';
 import 'package:liabrary/utils/colors.dart';
 
 class BookUpdate extends StatefulWidget {
@@ -196,6 +197,10 @@ class _BookUpdateState extends State<BookUpdate> {
           ],
         ),
       ),
+      drawer: MyDrawer(
+          firebaseUser: widget.firebaseUser,
+          userModel: widget.userModel,
+        ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:liabrary/models/book_model.dart';
 import 'package:liabrary/models/user_model.dart';
+import 'package:liabrary/pages/pages/drawer.dart';
 import 'package:liabrary/pages/pages/inventory.dart';
 import 'package:liabrary/utils/colors.dart';
 
@@ -125,6 +126,10 @@ class _AddItemState extends State<AddBook> {
           ],
         ),
       ),
+      drawer: MyDrawer(
+          firebaseUser: widget.firebaseUser,
+          userModel: widget.userModel,
+        ),
     );
   }
 }

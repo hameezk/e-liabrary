@@ -5,6 +5,7 @@ import 'package:liabrary/models/book_model.dart';
 import 'package:liabrary/models/user_model.dart';
 import 'package:liabrary/pages/pages/book_issue.dart';
 import 'package:liabrary/pages/pages/book_update.dart';
+import 'package:liabrary/pages/pages/drawer.dart';
 import 'package:liabrary/utils/colors.dart';
 
 class SearchBookPage extends StatefulWidget {
@@ -377,6 +378,10 @@ class _SearchBookPageState extends State<SearchBookPage> {
                 ],
               ),
       ),
+      drawer: MyDrawer(
+          firebaseUser: widget.firebaseUser,
+          userModel: widget.userModel,
+        ),
     );
   }
 
