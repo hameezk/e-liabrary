@@ -25,9 +25,9 @@ class CompleteProfile extends StatefulWidget {
 }
 
 class _CompleteProfileState extends State<CompleteProfile> {
-  List<String> roles = ["Admin", "Librarian", "Patron"];
+  List<String> roles = ["Admin", "librarian", "patron"];
   File? imageFile;
-  String? role = "Patron";
+  String? role = "patron";
 
   TextEditingController fullNameController = TextEditingController();
   TextEditingController roleController = TextEditingController();

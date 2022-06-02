@@ -14,7 +14,14 @@ void main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); // to ensure initialized WidgetsFlutterBinding
   await Firebase
-      .initializeApp(); // to wait for firebase to initialize the app from console.firebase.google.com
+      .initializeApp(
+      options: const FirebaseOptions(
+      apiKey: "AIzaSyAdIs-95B3gA6uYg62uNOq6fokB8TPMrlA", // Your apiKey
+      appId: "1:1085559114804:web:bcaba273b475a013a70e61", // Your appId
+      messagingSenderId: "1085559114804", // Your messagingSenderId
+      projectId: "liabrary-5f95c", // Your projectId
+    ),
+      ); // to wait for firebase to initialize the app from console.firebase.google.com
 
   User? currentUser = FirebaseAuth.instance
       .currentUser; // to store info about logged in user (if any) i.e. email/password

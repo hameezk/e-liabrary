@@ -4,7 +4,6 @@ import 'package:liabrary/models/card_model.dart';
 import 'package:liabrary/pages/pages/drawer.dart';
 import 'package:liabrary/utils/colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:intl/intl.dart';
 import 'package:liabrary/models/user_model.dart';
 
 class MyCard extends StatefulWidget {
